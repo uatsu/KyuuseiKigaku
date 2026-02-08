@@ -43,7 +43,7 @@ jobs:
             CODE_SIGN_IDENTITY="" \
             clean build
 
- - name: Test (Simulator)
+      - name: Test (Simulator)
         run: |
           xcodebuild \
             -project KyuuseiKigaku/KyuuseiKigaku.xcodeproj \
@@ -54,6 +54,3 @@ jobs:
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY="" \
             test
-
-
-            
