@@ -1,0 +1,174 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "app_title"
+msgstr "Kyusei Kigaku Fortune"
+
+msgid "app_subtitle"
+msgstr "Discover your destiny through Kyusei Kigaku"
+
+msgid "button_new_reading"
+msgstr "Get New Reading"
+
+msgid "button_view_history"
+msgstr "View History"
+
+msgid "button_submit"
+msgstr "Get Fortune"
+
+msgid "button_save"
+msgstr "Save"
+
+msgid "button_cancel"
+msgstr "Cancel"
+
+msgid "button_back_home"
+msgstr "Back to Home"
+
+msgid "input_title"
+msgstr "Enter Your Question"
+
+msgid "input_nav_title"
+msgstr "Fortune Details"
+
+msgid "input_category_label"
+msgstr "Category"
+
+msgid "input_message_label"
+msgstr "Your Question"
+
+msgid "input_message_placeholder"
+msgstr "Enter your question (max 200 characters)"
+
+msgid "category_love"
+msgstr "Love"
+
+msgid "category_work"
+msgstr "Work"
+
+msgid "category_health"
+msgstr "Health"
+
+msgid "category_money"
+msgstr "Money"
+
+msgid "category_general"
+msgstr "General"
+
+msgid "ad_title"
+msgstr "Watching Reward Ad"
+
+msgid "ad_message"
+msgstr "Please watch this ad to see your fortune"
+
+msgid "result_title"
+msgstr "Fortune Result"
+
+msgid "result_loading"
+msgstr "Loading your fortune..."
+
+msgid "result_honmei"
+msgstr "Honmei Star"
+
+msgid "result_getsumei"
+msgstr "Getsumei Star"
+
+msgid "result_reading"
+msgstr "Reading"
+
+msgid "history_title"
+msgstr "Fortune History"
+
+msgid "history_empty"
+msgstr "No fortune history yet"
+
+msgid "detail_title"
+msgstr "Fortune Details"
+
+msgid "detail_message"
+msgstr "Your Question"
+
+msgid "detail_region"
+msgstr "Region"
+
+msgid "settings_title"
+msgstr "Settings"
+
+msgid "settings_profile_section"
+msgstr "Profile"
+
+msgid "settings_name_label"
+msgstr "Name"
+
+msgid "settings_gender_label"
+msgstr "Gender"
+
+msgid "settings_gender_male"
+msgstr "Male"
+
+msgid "settings_gender_female"
+msgstr "Female"
+
+msgid "settings_gender_other"
+msgstr "Other"
+
+msgid "settings_birthdate_label"
+msgstr "Birth Date"
+
+msgid "settings_location_section"
+msgstr "Location"
+
+msgid "settings_use_location"
+msgstr "Use Current Location"
+
+msgid "settings_get_location"
+msgstr "Get Current Location"
+
+msgid "settings_current_location"
+msgstr "Current Location"
+
+msgid "settings_prefecture_label"
+msgstr "Prefecture/State"
+
+msgid "settings_municipality_label"
+msgstr "City/Municipality"
+
+msgid "settings_language_section"
+msgstr "Language"
+
+msgid "settings_language_label"
+msgstr "Select Language"
+
+msgid "kigaku_name_1"
+msgstr "Ippaku Suisei"
+
+msgid "kigaku_name_2"
+msgstr "Jikoku Dosei"
+
+msgid "kigaku_name_3"
+msgstr "Sanpeki Mokusei"
+
+msgid "kigaku_name_4"
+msgstr "Shiroku Mokusei"
+
+msgid "kigaku_name_5"
+msgstr "Goo Dosei"
+
+msgid "kigaku_name_6"
+msgstr "Roppaku Kinsei"
+
+msgid "kigaku_name_7"
+msgstr "Shichiseki Kinsei"
+
+msgid "kigaku_name_8"
+msgstr "Happaku Dosei"
+
+msgid "kigaku_name_9"
+msgstr "Kyushi Kasei"
+
+msgid "openai_prompt"
+msgstr "You are a Kyusei Kigaku (Nine Star Ki) expert. Based on the following information, provide a fortune reading of approximately 300 characters.\n\nCategory: {category}\nQuestion: {message}\nHonmei Star: {honmei}\nGetsumei Star: {getsumei}\nRegion: {region}\n\nPlease provide specific and positive advice."
+
+msgid "dummy_reading_template"
+msgstr "Fortune for [{category}]\n\nYour Honmei star is {honmei} and Getsumei star is {getsumei}. Today brings positive energy. Taking on new challenges will lead to good results. Valuing cooperation with those around you will further increase your luck. Take it step by step without rushing."

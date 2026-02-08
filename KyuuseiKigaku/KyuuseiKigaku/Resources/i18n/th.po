@@ -1,0 +1,174 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "app_title"
+msgstr "คำทำนาย Kyusei Kigaku"
+
+msgid "app_subtitle"
+msgstr "ค้นพบชะตากรรมของคุณผ่าน Kyusei Kigaku"
+
+msgid "button_new_reading"
+msgstr "รับคำทำนายใหม่"
+
+msgid "button_view_history"
+msgstr "ดูประวัติ"
+
+msgid "button_submit"
+msgstr "รับคำทำนาย"
+
+msgid "button_save"
+msgstr "บันทึก"
+
+msgid "button_cancel"
+msgstr "ยกเลิก"
+
+msgid "button_back_home"
+msgstr "กลับหน้าหลัก"
+
+msgid "input_title"
+msgstr "ใส่คำถามของคุณ"
+
+msgid "input_nav_title"
+msgstr "ข้อมูลคำทำนาย"
+
+msgid "input_category_label"
+msgstr "หมวดหมู่"
+
+msgid "input_message_label"
+msgstr "คำถามของคุณ"
+
+msgid "input_message_placeholder"
+msgstr "ใส่คำถามของคุณ (สูงสุด 200 ตัวอักษร)"
+
+msgid "category_love"
+msgstr "ความรัก"
+
+msgid "category_work"
+msgstr "งาน"
+
+msgid "category_health"
+msgstr "สุขภาพ"
+
+msgid "category_money"
+msgstr "เงิน"
+
+msgid "category_general"
+msgstr "ทั่วไป"
+
+msgid "ad_title"
+msgstr "กำลังดูโฆษณารางวัล"
+
+msgid "ad_message"
+msgstr "โปรดดูโฆษณานี้เพื่อดูคำทำนายของคุณ"
+
+msgid "result_title"
+msgstr "ผลคำทำนาย"
+
+msgid "result_loading"
+msgstr "กำลังอ่านคำทำนายของคุณ..."
+
+msgid "result_honmei"
+msgstr "ดาว Honmei"
+
+msgid "result_getsumei"
+msgstr "ดาว Getsumei"
+
+msgid "result_reading"
+msgstr "การอ่านคำทำนาย"
+
+msgid "history_title"
+msgstr "ประวัติคำทำนาย"
+
+msgid "history_empty"
+msgstr "ยังไม่มีประวัติคำทำนาย"
+
+msgid "detail_title"
+msgstr "รายละเอียดคำทำนาย"
+
+msgid "detail_message"
+msgstr "คำถามของคุณ"
+
+msgid "detail_region"
+msgstr "ภูมิภาค"
+
+msgid "settings_title"
+msgstr "การตั้งค่า"
+
+msgid "settings_profile_section"
+msgstr "โปรไฟล์"
+
+msgid "settings_name_label"
+msgstr "ชื่อ"
+
+msgid "settings_gender_label"
+msgstr "เพศ"
+
+msgid "settings_gender_male"
+msgstr "ชาย"
+
+msgid "settings_gender_female"
+msgstr "หญิง"
+
+msgid "settings_gender_other"
+msgstr "อื่นๆ"
+
+msgid "settings_birthdate_label"
+msgstr "วันเกิด"
+
+msgid "settings_location_section"
+msgstr "ตำแหน่ง"
+
+msgid "settings_use_location"
+msgstr "ใช้ตำแหน่งปัจจุบัน"
+
+msgid "settings_get_location"
+msgstr "รับตำแหน่งปัจจุบัน"
+
+msgid "settings_current_location"
+msgstr "ตำแหน่งปัจจุบัน"
+
+msgid "settings_prefecture_label"
+msgstr "จังหวัด"
+
+msgid "settings_municipality_label"
+msgstr "เทศบาล"
+
+msgid "settings_language_section"
+msgstr "ภาษา"
+
+msgid "settings_language_label"
+msgstr "เลือกภาษา"
+
+msgid "kigaku_name_1"
+msgstr "Ippaku Suisei"
+
+msgid "kigaku_name_2"
+msgstr "Jikoku Dosei"
+
+msgid "kigaku_name_3"
+msgstr "Sanpeki Mokusei"
+
+msgid "kigaku_name_4"
+msgstr "Shiroku Mokusei"
+
+msgid "kigaku_name_5"
+msgstr "Goo Dosei"
+
+msgid "kigaku_name_6"
+msgstr "Roppaku Kinsei"
+
+msgid "kigaku_name_7"
+msgstr "Shichiseki Kinsei"
+
+msgid "kigaku_name_8"
+msgstr "Happaku Dosei"
+
+msgid "kigaku_name_9"
+msgstr "Kyushi Kasei"
+
+msgid "openai_prompt"
+msgstr "คุณเป็นผู้เชี่ยวชาญ Kyusei Kigaku (Nine Star Ki) จากข้อมูลต่อไปนี้ ให้คำทำนายประมาณ 300 ตัวอักษร\n\nหมวดหมู่: {category}\nคำถาม: {message}\nดาว Honmei: {honmei}\nดาว Getsumei: {getsumei}\nภูมิภาค: {region}\n\nโปรดให้คำแนะนำที่เฉพาะเจาะจงและเชิงบวก"
+
+msgid "dummy_reading_template"
+msgstr "คำทำนายสำหรับ [{category}]\n\nดาว Honmei ของคุณคือ {honmei} และดาว Getsumei คือ {getsumei} วันนี้นำมาซึ่งพลังงานเชิงบวก การรับความท้าทายใหม่จะนำไปสู่ผลลัพธ์ที่ดี ให้ความสำคัญกับความร่วมมือกับคนรอบข้าง และโชคของคุณจะดีขึ้น อย่าเร่งรีบ; ก้าวไปข้างหน้าทีละขั้นตอน"

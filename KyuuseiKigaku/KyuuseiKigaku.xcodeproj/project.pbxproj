@@ -1,0 +1,462 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A0000001 /* KyuuseiKigakuApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000001 /* KyuuseiKigakuApp.swift */; };
+		A0000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000002 /* ContentView.swift */; };
+		A0000003 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000003 /* UserProfile.swift */; };
+		A0000004 /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000004 /* Reading.swift */; };
+		A0000005 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000005 /* HomeView.swift */; };
+		A0000006 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000006 /* InputView.swift */; };
+		A0000007 /* FakeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000007 /* FakeAdView.swift */; };
+		A0000008 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000008 /* ResultView.swift */; };
+		A0000009 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000009 /* HistoryView.swift */; };
+		A000000A /* HistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B000000A /* HistoryDetailView.swift */; };
+		A000000B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B000000B /* SettingsView.swift */; };
+		A000000C /* KigakuCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B000000C /* KigakuCalculator.swift */; };
+		A000000D /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B000000D /* OpenAIService.swift */; };
+		A000000E /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B000000E /* LocationService.swift */; };
+		A000000F /* I18n.swift in Sources */ = {isa = PBXBuildFile; fileRef = B000000F /* I18n.swift */; };
+		A0000010 /* ja.po in Resources */ = {isa = PBXBuildFile; fileRef = B0000010 /* ja.po */; };
+		A0000011 /* en.po in Resources */ = {isa = PBXBuildFile; fileRef = B0000011 /* en.po */; };
+		A0000012 /* id.po in Resources */ = {isa = PBXBuildFile; fileRef = B0000012 /* id.po */; };
+		A0000013 /* th.po in Resources */ = {isa = PBXBuildFile; fileRef = B0000013 /* th.po */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C0000001 /* KyuuseiKigaku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KyuuseiKigaku.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0000001 /* KyuuseiKigakuApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KyuuseiKigakuApp.swift; sourceTree = "<group>"; };
+		B0000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B0000003 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		B0000004 /* Reading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reading.swift; sourceTree = "<group>"; };
+		B0000005 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B0000006 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		B0000007 /* FakeAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAdView.swift; sourceTree = "<group>"; };
+		B0000008 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		B0000009 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		B000000A /* HistoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailView.swift; sourceTree = "<group>"; };
+		B000000B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B000000C /* KigakuCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KigakuCalculator.swift; sourceTree = "<group>"; };
+		B000000D /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
+		B000000E /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		B000000F /* I18n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = I18n.swift; sourceTree = "<group>"; };
+		B0000010 /* ja.po */ = {isa = PBXFileReference; lastKnownFileType = text; path = ja.po; sourceTree = "<group>"; };
+		B0000011 /* en.po */ = {isa = PBXFileReference; lastKnownFileType = text; path = en.po; sourceTree = "<group>"; };
+		B0000012 /* id.po */ = {isa = PBXFileReference; lastKnownFileType = text; path = id.po; sourceTree = "<group>"; };
+		B0000013 /* th.po */ = {isa = PBXFileReference; lastKnownFileType = text; path = th.po; sourceTree = "<group>"; };
+		B0000014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D0000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E0000001 = {
+			isa = PBXGroup;
+			children = (
+				E0000002 /* KyuuseiKigaku */,
+				E0000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E0000002 /* KyuuseiKigaku */ = {
+			isa = PBXGroup;
+			children = (
+				E0000004 /* App */,
+				E0000005 /* Models */,
+				E0000006 /* Views */,
+				E0000007 /* Services */,
+				E0000008 /* Utils */,
+				E0000009 /* Resources */,
+				B0000014 /* Info.plist */,
+			);
+			path = KyuuseiKigaku;
+			sourceTree = "<group>";
+		};
+		E0000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C0000001 /* KyuuseiKigaku.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E0000004 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B0000001 /* KyuuseiKigakuApp.swift */,
+				B0000002 /* ContentView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E0000005 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B0000003 /* UserProfile.swift */,
+				B0000004 /* Reading.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E0000006 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B0000005 /* HomeView.swift */,
+				B0000006 /* InputView.swift */,
+				B0000007 /* FakeAdView.swift */,
+				B0000008 /* ResultView.swift */,
+				B0000009 /* HistoryView.swift */,
+				B000000A /* HistoryDetailView.swift */,
+				B000000B /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E0000007 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B000000C /* KigakuCalculator.swift */,
+				B000000D /* OpenAIService.swift */,
+				B000000E /* LocationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E0000008 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B000000F /* I18n.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E0000009 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E000000A /* i18n */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E000000A /* i18n */ = {
+			isa = PBXGroup;
+			children = (
+				B0000010 /* ja.po */,
+				B0000011 /* en.po */,
+				B0000012 /* id.po */,
+				B0000013 /* th.po */,
+			);
+			path = i18n;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F0000001 /* KyuuseiKigaku */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0000002 /* Build configuration list for PBXNativeTarget "KyuuseiKigaku" */;
+			buildPhases = (
+				F0000003 /* Sources */,
+				D0000001 /* Frameworks */,
+				F0000004 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KyuuseiKigaku;
+			productName = KyuuseiKigaku;
+			productReference = C0000001 /* KyuuseiKigaku.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		G0000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					F0000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = G0000002 /* Build configuration list for PBXProject "KyuuseiKigaku" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = ja;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				ja,
+				en,
+				Base,
+				id,
+				th,
+			);
+			mainGroup = E0000001;
+			productRefGroup = E0000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F0000001 /* KyuuseiKigaku */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F0000004 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0000010 /* ja.po in Resources */,
+				A0000011 /* en.po in Resources */,
+				A0000012 /* id.po in Resources */,
+				A0000013 /* th.po in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F0000003 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0000001 /* KyuuseiKigakuApp.swift in Sources */,
+				A0000002 /* ContentView.swift in Sources */,
+				A0000003 /* UserProfile.swift in Sources */,
+				A0000004 /* Reading.swift in Sources */,
+				A0000005 /* HomeView.swift in Sources */,
+				A0000006 /* InputView.swift in Sources */,
+				A0000007 /* FakeAdView.swift in Sources */,
+				A0000008 /* ResultView.swift in Sources */,
+				A0000009 /* HistoryView.swift in Sources */,
+				A000000A /* HistoryDetailView.swift in Sources */,
+				A000000B /* SettingsView.swift in Sources */,
+				A000000C /* KigakuCalculator.swift in Sources */,
+				A000000D /* OpenAIService.swift in Sources */,
+				A000000E /* LocationService.swift in Sources */,
+				A000000F /* I18n.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		H0000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		H0000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		H0000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = KyuuseiKigaku/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyuseikigaku.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		H0000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = KyuuseiKigaku/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyuseikigaku.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		G0000002 /* Build configuration list for PBXProject "KyuuseiKigaku" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				H0000001 /* Debug */,
+				H0000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0000002 /* Build configuration list for PBXNativeTarget "KyuuseiKigaku" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				H0000003 /* Debug */,
+				H0000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = G0000001 /* Project object */;
+}

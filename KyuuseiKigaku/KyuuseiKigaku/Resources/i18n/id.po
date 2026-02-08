@@ -1,0 +1,174 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "app_title"
+msgstr "Ramalan Kyusei Kigaku"
+
+msgid "app_subtitle"
+msgstr "Temukan takdir Anda melalui Kyusei Kigaku"
+
+msgid "button_new_reading"
+msgstr "Dapatkan Ramalan Baru"
+
+msgid "button_view_history"
+msgstr "Lihat Riwayat"
+
+msgid "button_submit"
+msgstr "Dapatkan Ramalan"
+
+msgid "button_save"
+msgstr "Simpan"
+
+msgid "button_cancel"
+msgstr "Batal"
+
+msgid "button_back_home"
+msgstr "Kembali ke Beranda"
+
+msgid "input_title"
+msgstr "Masukkan Pertanyaan Anda"
+
+msgid "input_nav_title"
+msgstr "Detail Ramalan"
+
+msgid "input_category_label"
+msgstr "Kategori"
+
+msgid "input_message_label"
+msgstr "Pertanyaan Anda"
+
+msgid "input_message_placeholder"
+msgstr "Masukkan pertanyaan Anda (maks 200 karakter)"
+
+msgid "category_love"
+msgstr "Cinta"
+
+msgid "category_work"
+msgstr "Pekerjaan"
+
+msgid "category_health"
+msgstr "Kesehatan"
+
+msgid "category_money"
+msgstr "Uang"
+
+msgid "category_general"
+msgstr "Umum"
+
+msgid "ad_title"
+msgstr "Menonton Iklan Hadiah"
+
+msgid "ad_message"
+msgstr "Silakan tonton iklan ini untuk melihat ramalan Anda"
+
+msgid "result_title"
+msgstr "Hasil Ramalan"
+
+msgid "result_loading"
+msgstr "Memuat ramalan Anda..."
+
+msgid "result_honmei"
+msgstr "Bintang Honmei"
+
+msgid "result_getsumei"
+msgstr "Bintang Getsumei"
+
+msgid "result_reading"
+msgstr "Pembacaan"
+
+msgid "history_title"
+msgstr "Riwayat Ramalan"
+
+msgid "history_empty"
+msgstr "Belum ada riwayat ramalan"
+
+msgid "detail_title"
+msgstr "Detail Ramalan"
+
+msgid "detail_message"
+msgstr "Pertanyaan Anda"
+
+msgid "detail_region"
+msgstr "Wilayah"
+
+msgid "settings_title"
+msgstr "Pengaturan"
+
+msgid "settings_profile_section"
+msgstr "Profil"
+
+msgid "settings_name_label"
+msgstr "Nama"
+
+msgid "settings_gender_label"
+msgstr "Jenis Kelamin"
+
+msgid "settings_gender_male"
+msgstr "Pria"
+
+msgid "settings_gender_female"
+msgstr "Wanita"
+
+msgid "settings_gender_other"
+msgstr "Lainnya"
+
+msgid "settings_birthdate_label"
+msgstr "Tanggal Lahir"
+
+msgid "settings_location_section"
+msgstr "Lokasi"
+
+msgid "settings_use_location"
+msgstr "Gunakan Lokasi Saat Ini"
+
+msgid "settings_get_location"
+msgstr "Dapatkan Lokasi Saat Ini"
+
+msgid "settings_current_location"
+msgstr "Lokasi Saat Ini"
+
+msgid "settings_prefecture_label"
+msgstr "Provinsi"
+
+msgid "settings_municipality_label"
+msgstr "Kota/Kabupaten"
+
+msgid "settings_language_section"
+msgstr "Bahasa"
+
+msgid "settings_language_label"
+msgstr "Pilih Bahasa"
+
+msgid "kigaku_name_1"
+msgstr "Ippaku Suisei"
+
+msgid "kigaku_name_2"
+msgstr "Jikoku Dosei"
+
+msgid "kigaku_name_3"
+msgstr "Sanpeki Mokusei"
+
+msgid "kigaku_name_4"
+msgstr "Shiroku Mokusei"
+
+msgid "kigaku_name_5"
+msgstr "Goo Dosei"
+
+msgid "kigaku_name_6"
+msgstr "Roppaku Kinsei"
+
+msgid "kigaku_name_7"
+msgstr "Shichiseki Kinsei"
+
+msgid "kigaku_name_8"
+msgstr "Happaku Dosei"
+
+msgid "kigaku_name_9"
+msgstr "Kyushi Kasei"
+
+msgid "openai_prompt"
+msgstr "Anda adalah ahli Kyusei Kigaku (Nine Star Ki). Berdasarkan informasi berikut, berikan ramalan sekitar 300 karakter.\n\nKategori: {category}\nPertanyaan: {message}\nBintang Honmei: {honmei}\nBintang Getsumei: {getsumei}\nWilayah: {region}\n\nBerikan saran yang spesifik dan positif."
+
+msgid "dummy_reading_template"
+msgstr "Ramalan untuk [{category}]\n\nBintang Honmei Anda adalah {honmei} dan bintang Getsumei adalah {getsumei}. Hari ini membawa energi positif. Menghadapi tantangan baru akan menghasilkan hasil yang baik. Menghargai kerja sama dengan orang-orang di sekitar Anda akan meningkatkan keberuntungan Anda. Ambil langkah demi langkah tanpa terburu-buru."

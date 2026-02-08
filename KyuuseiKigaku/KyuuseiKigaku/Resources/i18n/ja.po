@@ -1,0 +1,174 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "app_title"
+msgstr "九星気学占い"
+
+msgid "app_subtitle"
+msgstr "九星気学であなたの運命を発見しよう"
+
+msgid "button_new_reading"
+msgstr "新しい占いをする"
+
+msgid "button_view_history"
+msgstr "履歴を見る"
+
+msgid "button_submit"
+msgstr "占う"
+
+msgid "button_save"
+msgstr "保存"
+
+msgid "button_cancel"
+msgstr "キャンセル"
+
+msgid "button_back_home"
+msgstr "ホームに戻る"
+
+msgid "input_title"
+msgstr "占いの質問を入力"
+
+msgid "input_nav_title"
+msgstr "占い情報"
+
+msgid "input_category_label"
+msgstr "カテゴリー"
+
+msgid "input_message_label"
+msgstr "あなたの質問"
+
+msgid "input_message_placeholder"
+msgstr "質問を入力してください（最大200文字）"
+
+msgid "category_love"
+msgstr "恋愛"
+
+msgid "category_work"
+msgstr "仕事"
+
+msgid "category_health"
+msgstr "健康"
+
+msgid "category_money"
+msgstr "金運"
+
+msgid "category_general"
+msgstr "総合"
+
+msgid "ad_title"
+msgstr "リワード広告を視聴中"
+
+msgid "ad_message"
+msgstr "占い結果を見るために、この広告をご覧ください"
+
+msgid "result_title"
+msgstr "占い結果"
+
+msgid "result_loading"
+msgstr "占いを読み込んでいます..."
+
+msgid "result_honmei"
+msgstr "本命星"
+
+msgid "result_getsumei"
+msgstr "月命星"
+
+msgid "result_reading"
+msgstr "占い結果"
+
+msgid "history_title"
+msgstr "占い履歴"
+
+msgid "history_empty"
+msgstr "まだ占い履歴がありません"
+
+msgid "detail_title"
+msgstr "占い詳細"
+
+msgid "detail_message"
+msgstr "あなたの質問"
+
+msgid "detail_region"
+msgstr "地域"
+
+msgid "settings_title"
+msgstr "設定"
+
+msgid "settings_profile_section"
+msgstr "プロフィール"
+
+msgid "settings_name_label"
+msgstr "名前"
+
+msgid "settings_gender_label"
+msgstr "性別"
+
+msgid "settings_gender_male"
+msgstr "男性"
+
+msgid "settings_gender_female"
+msgstr "女性"
+
+msgid "settings_gender_other"
+msgstr "その他"
+
+msgid "settings_birthdate_label"
+msgstr "生年月日"
+
+msgid "settings_location_section"
+msgstr "位置情報"
+
+msgid "settings_use_location"
+msgstr "現在地を使用"
+
+msgid "settings_get_location"
+msgstr "現在地を取得"
+
+msgid "settings_current_location"
+msgstr "現在地"
+
+msgid "settings_prefecture_label"
+msgstr "都道府県"
+
+msgid "settings_municipality_label"
+msgstr "市区町村"
+
+msgid "settings_language_section"
+msgstr "言語"
+
+msgid "settings_language_label"
+msgstr "言語を選択"
+
+msgid "kigaku_name_1"
+msgstr "一白水星"
+
+msgid "kigaku_name_2"
+msgstr "二黒土星"
+
+msgid "kigaku_name_3"
+msgstr "三碧木星"
+
+msgid "kigaku_name_4"
+msgstr "四緑木星"
+
+msgid "kigaku_name_5"
+msgstr "五黄土星"
+
+msgid "kigaku_name_6"
+msgstr "六白金星"
+
+msgid "kigaku_name_7"
+msgstr "七赤金星"
+
+msgid "kigaku_name_8"
+msgstr "八白土星"
+
+msgid "kigaku_name_9"
+msgstr "九紫火星"
+
+msgid "openai_prompt"
+msgstr "あなたは九星気学の専門家です。以下の情報から、約300文字の占い結果を生成してください。\n\nカテゴリー: {category}\n質問: {message}\n本命星: {honmei}\n月命星: {getsumei}\n地域: {region}\n\n具体的でポジティブなアドバイスをお願いします。"
+
+msgid "dummy_reading_template"
+msgstr "[{category}]の占い結果\n\nあなたの本命星は{honmei}、月命星は{getsumei}です。今日はポジティブなエネルギーに満ちています。新しいチャレンジに向かうことで良い結果が得られるでしょう。周囲の人との協力を大切にすることで、運気がさらに上昇します。焦らず一歩ずつ前進しましょう。"
