@@ -13,20 +13,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Show Xcode and project files
+      - name: Xcode version
+        run: xcodebuild -version
+
+      - name: List schemes
+        run: xcodebuild -list -project KyuuseiKigaku/KyuuseiKigaku.xcodeproj
+
+      - name: Build (Simulator)
         run: |
-          xcodebuild -version
-          ls -la
-          ls -la KyuuseiKigaku
-          find . -maxdepth 4 -name "*.xcodeproj" -print
-          find . -maxdepth 4 -name "*.xcworkspace" -print
-
-      - name: Build (iPhone Simulator)
-  run: |
-    xcodebuild \
-      -project KyuuseiKigaku/KyuuseiKigaku.xcodeproj \
-      -scheme KyuuseiKigaku \
-      -configuration Debug \
-      -destination 'platform=iOS Simulator,name=Any iOS Simulator Device' \
-      clean build
-
+          xcodebuild \
+            -project KyuuseiKigaku/KyuuseiKigaku.xcodeproj \
+            -scheme KyuuseiKigaku \
+            -configuration Debug \
+            -destination "platform=iOS Simulator,name=Any iOS Simulator Device" \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            clean build
