@@ -26,7 +26,18 @@
 		A0000011 /* en.po in Resources */ = {isa = PBXBuildFile; fileRef = B0000011 /* en.po */; };
 		A0000012 /* id.po in Resources */ = {isa = PBXBuildFile; fileRef = B0000012 /* id.po */; };
 		A0000013 /* th.po in Resources */ = {isa = PBXBuildFile; fileRef = B0000013 /* th.po */; };
+		A0000014 /* KigakuCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000015 /* KigakuCalculatorTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		T0000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = G0000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F0000001;
+			remoteInfo = KyuuseiKigaku;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		C0000001 /* KyuuseiKigaku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KyuuseiKigaku.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,10 +61,19 @@
 		B0000012 /* id.po */ = {isa = PBXFileReference; lastKnownFileType = text; path = id.po; sourceTree = "<group>"; };
 		B0000013 /* th.po */ = {isa = PBXFileReference; lastKnownFileType = text; path = th.po; sourceTree = "<group>"; };
 		B0000014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0000015 /* KigakuCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KigakuCalculatorTests.swift; sourceTree = "<group>"; };
+		C0000002 /* KyuuseiKigakuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KyuuseiKigakuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D0000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0000002 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -67,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				E0000002 /* KyuuseiKigaku */,
+				E000000B /* KyuuseiKigakuTests */,
 				E0000003 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -89,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				C0000001 /* KyuuseiKigaku.app */,
+				C0000002 /* KyuuseiKigakuTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,6 +184,14 @@
 			path = i18n;
 			sourceTree = "<group>";
 		};
+		E000000B /* KyuuseiKigakuTests */ = {
+			isa = PBXGroup;
+			children = (
+				B0000015 /* KigakuCalculatorTests.swift */,
+			);
+			path = KyuuseiKigakuTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -182,6 +212,24 @@
 			productReference = C0000001 /* KyuuseiKigaku.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F0000005 /* KyuuseiKigakuTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0000006 /* Build configuration list for PBXNativeTarget "KyuuseiKigakuTests" */;
+			buildPhases = (
+				F0000007 /* Sources */,
+				D0000002 /* Frameworks */,
+				F0000008 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				T0000002 /* PBXTargetDependency */,
+			);
+			name = KyuuseiKigakuTests;
+			productName = KyuuseiKigakuTests;
+			productReference = C0000002 /* KyuuseiKigakuTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -194,6 +242,10 @@
 				TargetAttributes = {
 					F0000001 = {
 						CreatedOnToolsVersion = 15.0;
+					};
+					F0000005 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = F0000001;
 					};
 				};
 			};
@@ -214,6 +266,7 @@
 			projectRoot = "";
 			targets = (
 				F0000001 /* KyuuseiKigaku */,
+				F0000005 /* KyuuseiKigakuTests */,
 			);
 		};
 /* End PBXProject section */
@@ -227,6 +280,13 @@
 				A0000011 /* en.po in Resources */,
 				A0000012 /* id.po in Resources */,
 				A0000013 /* th.po in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0000008 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,7 +315,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F0000007 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0000014 /* KigakuCalculatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		T0000002 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F0000001 /* KyuuseiKigaku */;
+			targetProxy = T0000001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		H0000001 /* Debug */ = {
@@ -435,6 +511,42 @@
 			};
 			name = Release;
 		};
+		H0000005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyuseikigaku.app.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KyuuseiKigaku.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KyuuseiKigaku";
+			};
+			name = Debug;
+		};
+		H0000006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyuseikigaku.app.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KyuuseiKigaku.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KyuuseiKigaku";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -452,6 +564,15 @@
 			buildConfigurations = (
 				H0000003 /* Debug */,
 				H0000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0000006 /* Build configuration list for PBXNativeTarget "KyuuseiKigakuTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				H0000005 /* Debug */,
+				H0000006 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
