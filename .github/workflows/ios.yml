@@ -42,3 +42,18 @@ jobs:
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY="" \
             clean build
+
+ - name: Test (Simulator)
+        run: |
+          xcodebuild \
+            -project KyuuseiKigaku/KyuuseiKigaku.xcodeproj \
+            -scheme KyuuseiKigaku \
+            -configuration Debug \
+            -destination "platform=iOS Simulator,id=${SIM_UDID}" \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            test
+
+
+            
