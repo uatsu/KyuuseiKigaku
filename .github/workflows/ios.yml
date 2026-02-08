@@ -1,0 +1,31 @@
+name: iOS Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Show Xcode and project files
+        run: |
+          xcodebuild -version
+          ls -la
+          ls -la KyuuseiKigaku
+          find . -maxdepth 4 -name "*.xcodeproj" -print
+          find . -maxdepth 4 -name "*.xcworkspace" -print
+
+      - name: Build (iPhone Simulator)
+        run: |
+          xcodebuild \
+            -project KyuuseiKigaku/KyuuseiKigaku.xcodeproj \
+            -scheme KyuuseiKigaku \
+            -configuration Debug \
+            -destination 'platform=iOS Simulator,name=iPhone 15' \
+            clean build
