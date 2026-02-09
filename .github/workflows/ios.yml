@@ -1,56 +1,38 @@
-name: iOS Build
+name: iOS CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
 
 jobs:
-  build:
-    runs-on: macos-latest
+  build-and-test:
+    runs-on: macos-15
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Xcode version
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_16.4.app
+
+      - name: Show Xcode version
         run: xcodebuild -version
 
-      - name: List schemes
-        run: xcodebuild -list -project KyuuseiKigaku/KyuuseiKigaku.xcodeproj
+      - name: List simulators (debug)
+        run: xcrun simctl list devices
 
-      - name: Pick a simulator (UDID)
+      # ✅ “IDではなく名前＋OS”で固定（IDは環境で変わるため）
+      - name: Build & Test
         run: |
-          UDID=$(xcrun simctl list devices available --json | ruby -rjson -e '
-            data=JSON.parse(STDIN.read);
-            devs=data["devices"].values.flatten;
-            iphone=devs.find{|d| d["isAvailable"] && d["name"].start_with?("iPhone ")};
-            abort("No iPhone simulator found") unless iphone;
-            puts iphone["udid"];
-          ')
-          echo "SIM_UDID=$UDID" >> $GITHUB_ENV
-          echo "Picked simulator UDID: $UDID"
-
-      - name: Build (Simulator)
-        run: |
-          xcodebuild \
+          set -o pipefail
+          xcodebuild test \
             -project KyuuseiKigaku/KyuuseiKigaku.xcodeproj \
             -scheme KyuuseiKigaku \
             -configuration Debug \
-            -destination "platform=iOS Simulator,id=${SIM_UDID}" \
+            -destination "platform=iOS Simulator,name=iPhone 16 Pro,OS=18.5" \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY="" \
-            clean build
-
-      - name: Test (Simulator)
-        run: |
-          xcodebuild \
-            -project KyuuseiKigaku/KyuuseiKigaku.xcodeproj \
-            -scheme KyuuseiKigaku \
-            -configuration Debug \
-            -destination "platform=iOS Simulator,id=${SIM_UDID}" \
-            CODE_SIGNING_ALLOWED=NO \
-            CODE_SIGNING_REQUIRED=NO \
-            CODE_SIGN_IDENTITY="" \
-            test
+          | xcpretty
