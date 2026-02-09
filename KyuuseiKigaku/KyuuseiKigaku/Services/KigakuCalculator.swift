@@ -25,13 +25,7 @@ class KigakuCalculator {
             adjustedYear = year
         }
 
-        var honmei = 11 - (adjustedYear % 9)
-        if honmei > 9 {
-            honmei -= 9
-        }
-        if honmei == 0 {
-            honmei = 9
-        }
+        let honmei = 11 - (adjustedYear % 9)
 
         let getsumei = calculateSimplifiedGetsumei(honmei: honmei, month: month)
 
