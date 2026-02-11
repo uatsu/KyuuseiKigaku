@@ -24,18 +24,19 @@ jobs:
         run: xcrun simctl list devices
 
       # ✅ “IDではなく名前＋OS”で固定（IDは環境で変わるため）
-         - name: Build & Test
-        run: |
-          set -o pipefail
-          xcodebuild test \
-            -project KyuuseiKigaku/KyuuseiKigaku.xcodeproj \
-            -scheme KyuuseiKigaku \
-            -configuration Debug \
-            -destination "platform=iOS Simulator,name=iPhone 16 Pro,OS=18.5" \
-            -parallel-testing-enabled NO \
-            -maximum-concurrent-test-simulator-destinations 1 \
-            -disable-concurrent-destination-testing \
-            CODE_SIGNING_ALLOWED=NO \
-            CODE_SIGNING_REQUIRED=NO \
-            CODE_SIGN_IDENTITY="" \
-          | xcpretty
+    - name: Build & Test
+  run: |
+    set -o pipefail
+    xcodebuild test \
+      -project KyuuseiKigaku/KyuuseiKigaku.xcodeproj \
+      -scheme KyuuseiKigaku \
+      -configuration Debug \
+      -destination "platform=iOS Simulator,name=iPhone 16 Pro,OS=18.5" \
+      -parallel-testing-enabled NO \
+      -maximum-concurrent-test-simulator-destinations 1 \
+      -disable-concurrent-destination-testing \
+      CODE_SIGNING_ALLOWED=NO \
+      CODE_SIGNING_REQUIRED=NO \
+      CODE_SIGN_IDENTITY="" \
+    | xcpretty
+
