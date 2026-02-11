@@ -4,7 +4,10 @@ A SwiftUI iOS application for Kyusei Kigaku (Nine Star Ki) fortune readings, bui
 
 ## Features
 
-- **Kyusei Kigaku Calculation**: Deterministic calculation of Honmei (本命星) and Getsumei (月命星)
+- **Kyusei Kigaku Calculation**: Deterministic calculation of:
+  - **Honmei (本命星)**: Life Star based on birth year (with Risshun boundary)
+  - **Getsumei (月命星)**: Month Star based on birth month
+  - **Nichimei (日命星)**: Daily Star based on 9-day cyclic rotation
 - **Fortune Readings**: AI-powered or dummy fortune readings based on your birth chart
 - **Multi-language Support**: Japanese (default), English, Indonesian, Thai using gettext .po files
 - **Local Data Persistence**: SwiftData for user profiles and reading history
