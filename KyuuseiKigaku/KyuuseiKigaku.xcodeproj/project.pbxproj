@@ -27,6 +27,7 @@
 		A0000012 /* id.po in Resources */ = {isa = PBXBuildFile; fileRef = B0000012 /* id.po */; };
 		A0000013 /* th.po in Resources */ = {isa = PBXBuildFile; fileRef = B0000013 /* th.po */; };
 		A0000014 /* KigakuCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000015 /* KigakuCalculatorTests.swift */; };
+		A0000016 /* RisshunProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000016 /* RisshunProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		B0000013 /* th.po */ = {isa = PBXFileReference; lastKnownFileType = text; path = th.po; sourceTree = "<group>"; };
 		B0000014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0000015 /* KigakuCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KigakuCalculatorTests.swift; sourceTree = "<group>"; };
+		B0000016 /* RisshunProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RisshunProvider.swift; sourceTree = "<group>"; };
 		C0000002 /* KyuuseiKigakuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KyuuseiKigakuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				B000000C /* KigakuCalculator.swift */,
+				B0000016 /* RisshunProvider.swift */,
 				B000000D /* OpenAIService.swift */,
 				B000000E /* LocationService.swift */,
 			);
@@ -309,6 +312,7 @@
 				A000000A /* HistoryDetailView.swift in Sources */,
 				A000000B /* SettingsView.swift in Sources */,
 				A000000C /* KigakuCalculator.swift in Sources */,
+				A0000016 /* RisshunProvider.swift in Sources */,
 				A000000D /* OpenAIService.swift in Sources */,
 				A000000E /* LocationService.swift in Sources */,
 				A000000F /* I18n.swift in Sources */,

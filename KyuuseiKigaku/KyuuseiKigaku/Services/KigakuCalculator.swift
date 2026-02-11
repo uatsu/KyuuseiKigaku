@@ -10,16 +10,15 @@ struct KigakuResult {
 class KigakuCalculator {
     static func calculate(birthDate: Date) -> KigakuResult {
         let calendar = Calendar.current
-        let components = calendar.dateComponents([.year, .month, .day], from: birthDate)
+        let components = calendar.dateComponents([.year, .month], from: birthDate)
 
         guard let year = components.year,
-              let month = components.month,
-              let day = components.day else {
+              let month = components.month else {
             return KigakuResult(honmeiNum: 1, honmeiName: getKigakuName(1), getsumeiNum: 1, getsumeiName: getKigakuName(1))
         }
 
-        let adjustedYear = getAdjustedYearForRisshun(year: year, month: month, day: day)
-        let honmei = calculateHonmei(year: adjustedYear)
+        let kigakuYear = determineKigakuYear(birthDate: birthDate, birthYear: year)
+        let honmei = calculateHonmei(year: kigakuYear)
         let getsumei = calculateSimplifiedGetsumei(honmei: honmei, month: month)
 
         return KigakuResult(
@@ -30,17 +29,15 @@ class KigakuCalculator {
         )
     }
 
-    private static func getRisshunDay(year: Int) -> Int {
-        return 4
-    }
+    private static func determineKigakuYear(birthDate: Date, birthYear: Int) -> Int {
+        guard let risshunDate = RisshunProvider.risshunDate(for: birthYear) else {
+            return birthYear
+        }
 
-    private static func getAdjustedYearForRisshun(year: Int, month: Int, day: Int) -> Int {
-        let risshunDay = getRisshunDay(year: year)
-
-        if month < 2 || (month == 2 && day < risshunDay) {
-            return year - 1
+        if birthDate < risshunDate {
+            return birthYear - 1
         } else {
-            return year
+            return birthYear
         }
     }
 
