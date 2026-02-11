@@ -18,15 +18,8 @@ class KigakuCalculator {
             return KigakuResult(honmeiNum: 1, honmeiName: getKigakuName(1), getsumeiNum: 1, getsumeiName: getKigakuName(1))
         }
 
-        let adjustedYear: Int
-        if month < 2 || (month == 2 && day < 4) {
-            adjustedYear = year - 1
-        } else {
-            adjustedYear = year
-        }
-
-        let honmei = 11 - (adjustedYear % 9)
-
+        let adjustedYear = getAdjustedYearForRisshun(year: year, month: month, day: day)
+        let honmei = calculateHonmei(year: adjustedYear)
         let getsumei = calculateSimplifiedGetsumei(honmei: honmei, month: month)
 
         return KigakuResult(
@@ -35,6 +28,45 @@ class KigakuCalculator {
             getsumeiNum: getsumei,
             getsumeiName: getKigakuName(getsumei)
         )
+    }
+
+    private static func getRisshunDay(year: Int) -> Int {
+        return 4
+    }
+
+    private static func getAdjustedYearForRisshun(year: Int, month: Int, day: Int) -> Int {
+        let risshunDay = getRisshunDay(year: year)
+
+        if month < 2 || (month == 2 && day < risshunDay) {
+            return year - 1
+        } else {
+            return year
+        }
+    }
+
+    private static func calculateHonmei(year: Int) -> Int {
+        let rawValue: Int
+
+        if year >= 1900 && year <= 1999 {
+            rawValue = 11 - (year % 9)
+        } else if year >= 2000 && year <= 2099 {
+            rawValue = 9 - (year % 9)
+        } else {
+            rawValue = 11 - (year % 9)
+        }
+
+        return normalizeToNineStars(rawValue)
+    }
+
+    private static func normalizeToNineStars(_ value: Int) -> Int {
+        var normalized = value
+        while normalized <= 0 {
+            normalized += 9
+        }
+        while normalized > 9 {
+            normalized -= 9
+        }
+        return normalized
     }
 
     private static func calculateSimplifiedGetsumei(honmei: Int, month: Int) -> Int {
