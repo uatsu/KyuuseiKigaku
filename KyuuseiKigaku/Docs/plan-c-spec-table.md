@@ -32,6 +32,32 @@ Risshun (Start of Spring) marks the beginning of the astrological year. The year
 
 **Source of Truth**: Generated table from solar longitude 315° calculation (to be implemented separately).
 
+### Table Generation Utility
+
+**Location**: [`Scripts/RisshunTableGenerator.swift`](../Scripts/RisshunTableGenerator.swift)
+
+**Status**: ⚠️ Generation utility only - **NOT used at runtime**
+
+| Aspect | Details |
+|--------|---------|
+| **Purpose** | Generate Swift source code for RisshunProvider's risshunTable dictionary |
+| **Runtime** | Not included in app builds (wrapped in `#if DEBUG`) |
+| **Algorithm** | Phase 1: Simplified interpolation between known reference points |
+| **Accuracy** | ±30-60 minutes (suitable for placeholder generation) |
+| **Usage** | Run in Xcode Playground or debug build, copy output to RisshunProvider.swift |
+| **Output Format** | Dictionary entries: `year: DateComponents(year:month:day:hour:minute:)` |
+
+**Usage Instructions**:
+1. Copy [`RisshunTableGenerator.swift`](../Scripts/RisshunTableGenerator.swift) into Xcode Playground
+2. Run: `RisshunTableGenerator.generateWithStats()`
+3. Copy generated Swift code from output
+4. Paste into [`RisshunProvider.swift`](../KyuuseiKigaku/Services/RisshunProvider.swift) to replace placeholder table
+5. Build and run tests to verify
+
+**Documentation**: See [`Scripts/README.md`](../Scripts/README.md) for complete usage guide
+
+**Future Enhancement**: Replace with true solar longitude 315° calculation for astronomical precision
+
 ---
 
 ## 2. Honmei (本命星) Calculation
@@ -171,6 +197,8 @@ Mapping from calculated numbers (1-9) to Japanese star names and elements.
 
 ## 8. Implementation Files
 
+### Runtime Files (Used by App)
+
 | File | Purpose | Key Functions | Notes |
 |------|---------|---------------|-------|
 | [`KigakuCalculator.swift`](../KyuuseiKigaku/Services/KigakuCalculator.swift) | Core calculation logic | `calculate()`, `determineKigakuYear()`, `calculateHonmei()`, `calculateSimplifiedGetsumei()`, `getKigakuName()` | Main entry point for all calculations |
@@ -178,13 +206,22 @@ Mapping from calculated numbers (1-9) to Japanese star names and elements.
 | [`KigakuCalculatorTests.swift`](../KyuuseiKigakuTests/KigakuCalculatorTests.swift) | Unit test suite | 10 test functions covering boundaries, formulas, and edge cases | Comprehensive validation of Plan C specification |
 | [`Reading.swift`](../KyuuseiKigaku/Models/Reading.swift) | Data model | `KigakuResult` struct | Stores calculation results |
 
+### Generation Utilities (NOT Used at Runtime)
+
+| File | Purpose | Key Functions | Notes |
+|------|---------|---------------|-------|
+| [`RisshunTableGenerator.swift`](../Scripts/RisshunTableGenerator.swift) | Generate Risshun table code | `generateSwiftCode()`, `generateWithStats()`, `generateSample()` | ⚠️ **Generation utility only**. Wrapped in `#if DEBUG`. Not included in app builds. |
+| [`RunGenerator.swift`](../Scripts/RunGenerator.swift) | Example generator usage | Script demonstrating how to run generator | Reference implementation for command-line usage |
+| [`Scripts/README.md`](../Scripts/README.md) | Generator documentation | N/A | Complete guide for using the table generator |
+
 ---
 
 ## 9. Future Enhancements
 
 | Enhancement | Current State | Future State | Priority | Notes |
 |-------------|---------------|--------------|----------|-------|
-| **Full Risshun Table** | 4 placeholder years | 1900-2100 complete table | **High** | Generate from solar longitude 315° calculations |
+| **Full Risshun Table** | 4 placeholder years | 1900-2100 complete table | **High** | Use [`RisshunTableGenerator.swift`](../Scripts/RisshunTableGenerator.swift) to generate full table |
+| **Generator Algorithm** | Simplified interpolation (Phase 1) | Solar longitude 315° calculation (Phase 2) | **High** | Update generator with astronomical precision, see [`Scripts/README.md`](../Scripts/README.md) |
 | **Astronomical Calculation** | Static table | Real-time solar longitude calculation | Low | Calculate Risshun from astronomical algorithms |
 | **Traditional Getsumei** | Simplified pattern | Solar term-based | High | Implement proper solar term calculations |
 | **Timezone Support** | JST only | User's local timezone | Low | Convert birth time to JST for calculation |
@@ -220,6 +257,7 @@ Mapping from calculated numbers (1-9) to Japanese star names and elements.
 - 🔄 **Expansion Ready**: Placeholder Risshun table structured for easy generation from solar longitude
 
 **Status**: Fully implemented and tested with placeholder Risshun table
-**Next Step**: Generate full Risshun table (1900-2100) from solar longitude calculations
+**Generator**: [`RisshunTableGenerator.swift`](../Scripts/RisshunTableGenerator.swift) available for table expansion
+**Next Step**: Run generator to create full 1900-2100 table, then enhance with solar longitude calculations
 **Last Updated**: 2026-02-11
-**Version**: Plan C (Placeholder Table Phase)
+**Version**: Plan C (Placeholder Table Phase + Generator)
