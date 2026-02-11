@@ -9,7 +9,10 @@ struct KigakuResult {
 
 class KigakuCalculator {
     static func calculate(birthDate: Date) -> KigakuResult {
-        let calendar = Calendar.current
+        var calendar = Calendar(identifier: .gregorian)
+        if let jst = TimeZone(identifier: "Asia/Tokyo") {
+            calendar.timeZone = jst
+        }
         let components = calendar.dateComponents([.year, .month], from: birthDate)
 
         guard let year = components.year,

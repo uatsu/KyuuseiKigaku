@@ -19,13 +19,15 @@ Risshun (Start of Spring) marks the beginning of the astrological year. The year
 
 ### Risshun Datetime Table (Placeholder)
 
-**Current Status**: Placeholder table with 4 sample years. Full table (1900-2100) will be generated from solar longitude calculations.
+**Current Status**: Placeholder table with 6 sample years. Full table (1900-2100) will be generated from solar longitude calculations.
 
 | Year | Risshun Date & Time (JST) | Notes |
 |------|---------------------------|-------|
 | 1990 | 1990-02-04 10:14 | Morning Risshun, 20th century |
 | 1991 | 1991-02-04 16:08 | Afternoon Risshun |
+| 1995 | 1995-02-04 15:21 | Mid-afternoon Risshun, used in boundary tests |
 | 2000 | 2000-02-04 20:40 | Evening Risshun, 21st century |
+| 2020 | 2020-02-04 17:03 | Evening Risshun, used in boundary tests |
 | 2026 | 2026-02-04 03:56 | Early morning Risshun |
 
 **Fallback Behavior**: Years not in table use Feb 4 00:00:00 JST as approximate Risshun datetime.

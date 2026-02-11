@@ -12,7 +12,7 @@ class RisshunProvider {
     // - Generation code will be added separately to compute this table programmatically
     //
     // CURRENT STATUS:
-    // - Placeholder table with sample years: 1990, 1991, 2000, 2026
+    // - Placeholder table with sample years: 1990, 1991, 1995, 2000, 2020, 2026
     // - Datetimes are in JST (Japan Standard Time) with minute-level precision
     // - Structure designed for easy expansion to full range (1900-2100)
     //
@@ -30,7 +30,9 @@ class RisshunProvider {
     private static let risshunTable: [Int: DateComponents] = [
         1990: DateComponents(year: 1990, month: 2, day: 4, hour: 10, minute: 14),
         1991: DateComponents(year: 1991, month: 2, day: 4, hour: 16, minute: 8),
+        1995: DateComponents(year: 1995, month: 2, day: 4, hour: 15, minute: 21),
         2000: DateComponents(year: 2000, month: 2, day: 4, hour: 20, minute: 40),
+        2020: DateComponents(year: 2020, month: 2, day: 4, hour: 17, minute: 3),
         2026: DateComponents(year: 2026, month: 2, day: 4, hour: 3, minute: 56)
     ]
 
