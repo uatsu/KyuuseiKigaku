@@ -227,16 +227,16 @@ final class KigakuCalculatorTests: XCTestCase {
         calendar.timeZone = jst
 
         var components = DateComponents()
-        components.year = 2000
-        components.month = 1
-        components.day = 1
+        components.year = 1995
+        components.month = 2
+        components.day = 4
         components.hour = 0
         components.minute = 0
 
         let referenceDate = calendar.date(from: components)!
         let dailyStar = KigakuCalculator.calculateDailyStar(for: referenceDate)
 
-        XCTAssertEqual(dailyStar, 1, "Reference date (2000-01-01 00:00 JST) should be Star 1")
+        XCTAssertEqual(dailyStar, 9, "Reference date (1995-02-04 00:00 JST / Risshun 1995) should be Star 9")
     }
 
     func testDailyStar_CyclicContinuity() throws {
@@ -253,19 +253,19 @@ final class KigakuCalculatorTests: XCTestCase {
         components.day = 1
 
         let testCases: [(day: Int, expectedStar: Int)] = [
-            (1, 1),
-            (2, 2),
-            (3, 3),
-            (4, 4),
-            (5, 5),
-            (6, 6),
-            (7, 7),
-            (8, 8),
+            (1, 8),
+            (2, 7),
+            (3, 6),
+            (4, 5),
+            (5, 4),
+            (6, 3),
+            (7, 2),
+            (8, 1),
             (9, 9),
-            (10, 1),
-            (11, 2),
+            (10, 8),
+            (11, 7),
             (18, 9),
-            (19, 1)
+            (19, 8)
         ]
 
         for testCase in testCases {
@@ -290,16 +290,16 @@ final class KigakuCalculatorTests: XCTestCase {
         components.month = 1
 
         let testCases: [(day: Int, expectedStar: Int)] = [
-            (1, 1),
-            (10, 1),
-            (19, 1),
-            (28, 1),
+            (1, 8),
+            (10, 8),
+            (19, 8),
+            (28, 8),
             (9, 9),
             (18, 9),
             (27, 9),
-            (5, 5),
-            (14, 5),
-            (23, 5)
+            (5, 4),
+            (14, 4),
+            (23, 4)
         ]
 
         for testCase in testCases {
@@ -326,9 +326,9 @@ final class KigakuCalculatorTests: XCTestCase {
         components.minute = 0
 
         let testCases: [(year: Int, expectedStar: Int)] = [
-            (2000, 2),
-            (2001, 8),
-            (2020, 7),
+            (2000, 6),
+            (2001, 1),
+            (2020, 9),
             (2025, 1)
         ]
 
@@ -357,7 +357,7 @@ final class KigakuCalculatorTests: XCTestCase {
         let date = calendar.date(from: components)!
         let dailyStar = KigakuCalculator.calculateDailyStar(for: date)
 
-        XCTAssertEqual(dailyStar, 9, "1999-12-31 (1 day before reference) should be Star 9")
+        XCTAssertEqual(dailyStar, 9, "1999-12-31 should be Star 9")
 
         components.year = 1999
         components.month = 12
@@ -365,7 +365,7 @@ final class KigakuCalculatorTests: XCTestCase {
         let date2 = calendar.date(from: components)!
         let dailyStar2 = KigakuCalculator.calculateDailyStar(for: date2)
 
-        XCTAssertEqual(dailyStar2, 8, "1999-12-30 (2 days before reference) should be Star 8")
+        XCTAssertEqual(dailyStar2, 1, "1999-12-30 should be Star 1")
     }
 
     func testDailyStar_TimeOfDayDoesNotMatter() throws {
@@ -394,8 +394,8 @@ final class KigakuCalculatorTests: XCTestCase {
             components.minute = time.minute
             let date = calendar.date(from: components)!
             let dailyStar = KigakuCalculator.calculateDailyStar(for: date)
-            XCTAssertEqual(dailyStar, 5,
-                         "Jan 5 at \(time.hour):\(time.minute) should be Star 5 (time should not affect result)")
+            XCTAssertEqual(dailyStar, 4,
+                         "Jan 5 at \(time.hour):\(time.minute) should be Star 4 (time should not affect result)")
         }
     }
 
@@ -438,11 +438,11 @@ final class KigakuCalculatorTests: XCTestCase {
         calendar.timeZone = jst
 
         let testCases: [(year: Int, month: Int, day: Int, expectedStar: Int, description: String)] = [
-            (2000, 1, 1, 1, "Reference date"),
-            (2000, 1, 10, 1, "Day 10 = 9 days after = full cycle"),
-            (2000, 2, 1, 4, "Day 32 from reference"),
-            (2020, 2, 4, 6, "Risshun 2020"),
-            (1995, 2, 4, 9, "Risshun 1995")
+            (2000, 1, 1, 8, "2000-01-01"),
+            (2000, 1, 10, 8, "2000-01-10 (9 days after 2000-01-01)"),
+            (2000, 2, 1, 4, "2000-02-01"),
+            (2020, 2, 4, 4, "Risshun 2020"),
+            (1995, 2, 4, 9, "Risshun 1995 (Reference Date)")
         ]
 
         for testCase in testCases {
@@ -468,12 +468,12 @@ final class KigakuCalculatorTests: XCTestCase {
         calendar.timeZone = jst
 
         let testCases: [(day: Int, expectedStar: Int)] = [
-            (25, 3),
-            (26, 4),
-            (27, 5),
-            (28, 6),
-            (29, 7),
-            (30, 8),
+            (25, 6),
+            (26, 5),
+            (27, 4),
+            (28, 3),
+            (29, 2),
+            (30, 1),
             (31, 9)
         ]
 

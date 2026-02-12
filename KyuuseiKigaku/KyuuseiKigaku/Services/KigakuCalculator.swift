@@ -208,22 +208,30 @@ class KigakuCalculator {
         return r >= 0 ? r : r + n
     }
 
-    /// Reference date for Daily Star calculation (2000-01-01 00:00:00 JST = Star 1).
+    /// Reference date for Daily Star calculation (1995-02-04 00:00:00 JST = Star 9).
     ///
     /// This date serves as the anchor point for the 9-day cyclic rotation of daily stars.
+    /// The reference date is Risshun 1995 (February 4, 1995), and on this date the Daily Star is 9.
     /// All daily star calculations compute the number of days elapsed since this reference
     /// and apply modulo 9 arithmetic to determine the current day's star.
+    ///
+    /// **C Spec Requirements:**
+    /// - Reference date: 1995-02-04 (Risshun 1995)
+    /// - Reference star: 9
+    /// - Pattern: Decreasing by 1 each day (9→8→7→6→5→4→3→2→1→9...)
+    /// - Timezone: JST (Asia/Tokyo)
+    /// - Start of day comparison (time of day does not affect result)
     private static let dailyStarReferenceDate: DateComponents = DateComponents(
-        year: 2000,
-        month: 1,
-        day: 1,
+        year: 1995,
+        month: 2,
+        day: 4,
         hour: 0,
         minute: 0,
         second: 0
     )
 
-    /// The star number for the reference date (Ichihaku / One White Water Star).
-    private static let dailyStarReferenceNumber = 1
+    /// The star number for the reference date (Kyuushi / Nine Purple Fire Star).
+    private static let dailyStarReferenceNumber = 9
 
     /// Calculates the Daily Star (Nichimei / 日命) for a given date.
     ///
@@ -232,18 +240,25 @@ class KigakuCalculator {
     /// Kyusei Kigaku system. Unlike Honmei (yearly) and Getsumei (monthly), Nichimei
     /// follows a simple 9-day cyclic rotation.
     ///
-    /// **Calculation Method:**
-    /// The daily star cycles through the nine stars in sequential order:
-    /// 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 1 (repeat)
+    /// **Calculation Method (C Spec):**
+    /// The daily star cycles through the nine stars in decreasing order:
+    /// 9 → 8 → 7 → 6 → 5 → 4 → 3 → 2 → 1 → 9 (repeat)
     ///
     /// Each complete cycle takes exactly 9 days. The calculation:
-    /// 1. Determines days elapsed since a known reference date
-    /// 2. Applies modulo 9 arithmetic to find position in the cycle
-    /// 3. Returns the corresponding star number (1-9)
+    /// 1. Determines days elapsed since the reference date (1995-02-04)
+    /// 2. Applies floor modulo 9 arithmetic to find offset (0-8)
+    /// 3. Calculates star = 9 - offset to get the decreasing pattern
+    /// 4. Returns the corresponding star number (1-9)
     ///
     /// **Reference Date:**
-    /// Uses January 1, 2000 at 00:00:00 JST as the reference (defined as Star 1).
+    /// Uses February 4, 1995 (Risshun 1995) at 00:00:00 JST as the reference (Star 9).
     /// This provides a deterministic, testable foundation for all calculations.
+    ///
+    /// **Formula:**
+    /// ```
+    /// offset = floorMod(daysDiff, 9)  // 0...8
+    /// star = 9 - offset               // Returns 9,8,7,6,5,4,3,2,1 for offset 0-8
+    /// ```
     ///
     /// **Timezone Handling:**
     /// All calculations use Asia/Tokyo timezone (JST/UTC+9) to ensure:
@@ -252,34 +267,35 @@ class KigakuCalculator {
     /// - Deterministic results for testing and verification
     ///
     /// **Implementation Details:**
-    /// - Days are counted using calendar day boundaries in JST
+    /// - Days are counted using calendar day boundaries in JST (start of day)
     /// - Time of day does not affect the result (only the date matters)
     /// - The cycle is continuous and infinite in both directions
-    /// - Dates before the reference date are handled correctly (negative offsets)
+    /// - Dates before the reference date are handled correctly (negative daysDiff)
+    /// - floorMod ensures offset is always 0-8, even for negative daysDiff
     ///
     /// - Parameter date: The date to calculate the daily star for
-    /// - Returns: Daily star number (1-9), or 1 if calculation fails
+    /// - Returns: Daily star number (1-9), or 9 if calculation fails
     ///
-    /// - Note: This is a simplified deterministic implementation. Traditional Nichimei
-    ///         calculations may involve more complex formulas based on month and year stars.
+    /// - Note: This implements the stricter C spec for Daily Star calculation.
     static func calculateDailyStar(for date: Date) -> Int {
         var calendar = Calendar(identifier: .gregorian)
         guard let jst = TimeZone(identifier: "Asia/Tokyo") else {
-            return 1
+            return 9
         }
         calendar.timeZone = jst
 
         guard let referenceDate = calendar.date(from: dailyStarReferenceDate) else {
-            return 1
+            return 9
         }
 
         let components = calendar.dateComponents([.day], from: referenceDate, to: date)
-        guard let daysSinceReference = components.day else {
-            return 1
+        guard let daysDiff = components.day else {
+            return 9
         }
 
-        let cyclePosition = floorMod(daysSinceReference, 9) + dailyStarReferenceNumber
-        return cyclePosition
+        let offset = floorMod(daysDiff, 9)
+        let star = 9 - offset
+        return star
     }
 
     // MARK: - Star Names
