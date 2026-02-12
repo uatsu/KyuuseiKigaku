@@ -458,4 +458,41 @@ final class KigakuCalculatorTests: XCTestCase {
                          "\(testCase.description) (\(testCase.year)-\(testCase.month)-\(testCase.day)) should be Star \(testCase.expectedStar), got \(dailyStar)")
         }
     }
+
+    func testDailyStar_BeforeReferenceDate_December1999() throws {
+        var calendar = Calendar(identifier: .gregorian)
+        guard let jst = TimeZone(identifier: "Asia/Tokyo") else {
+            XCTFail("Could not create JST timezone")
+            return
+        }
+        calendar.timeZone = jst
+
+        let testCases: [(day: Int, expectedStar: Int)] = [
+            (25, 3),
+            (26, 4),
+            (27, 5),
+            (28, 6),
+            (29, 7),
+            (30, 8),
+            (31, 9)
+        ]
+
+        for testCase in testCases {
+            var components = DateComponents()
+            components.year = 1999
+            components.month = 12
+            components.day = testCase.day
+            components.hour = 12
+
+            let date = calendar.date(from: components)!
+            let dailyStar = KigakuCalculator.calculateDailyStar(for: date)
+
+            XCTAssertGreaterThanOrEqual(dailyStar, 1,
+                                      "1999-12-\(testCase.day): Daily star must be >= 1, got \(dailyStar)")
+            XCTAssertLessThanOrEqual(dailyStar, 9,
+                                   "1999-12-\(testCase.day): Daily star must be <= 9, got \(dailyStar)")
+            XCTAssertEqual(dailyStar, testCase.expectedStar,
+                         "1999-12-\(testCase.day) should be Star \(testCase.expectedStar), got \(dailyStar)")
+        }
+    }
 }

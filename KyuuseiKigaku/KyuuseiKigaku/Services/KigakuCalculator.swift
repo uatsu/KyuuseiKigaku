@@ -188,6 +188,26 @@ class KigakuCalculator {
 
     // MARK: - Nichimei (Daily Star) Calculation
 
+    /// Performs floor modulo operation (always returns positive result).
+    ///
+    /// Swift's `%` operator returns negative values for negative dividends, which is unsuitable
+    /// for cyclic calculations. This function implements mathematical floor modulo (also known as
+    /// Euclidean modulo) which always returns a value in the range [0, n).
+    ///
+    /// Examples:
+    /// - `floorMod(7, 9)` returns `7`
+    /// - `floorMod(-1, 9)` returns `8` (not `-1`)
+    /// - `floorMod(-7, 9)` returns `2` (not `-7`)
+    ///
+    /// - Parameters:
+    ///   - a: The dividend (can be negative)
+    ///   - n: The divisor (must be positive)
+    /// - Returns: Result in range [0, n)
+    private static func floorMod(_ a: Int, _ n: Int) -> Int {
+        let r = a % n
+        return r >= 0 ? r : r + n
+    }
+
     /// Reference date for Daily Star calculation (2000-01-01 00:00:00 JST = Star 1).
     ///
     /// This date serves as the anchor point for the 9-day cyclic rotation of daily stars.
@@ -258,7 +278,7 @@ class KigakuCalculator {
             return 1
         }
 
-        let cyclePosition = ((daysSinceReference % 9) + dailyStarReferenceNumber - 1) % 9 + 1
+        let cyclePosition = floorMod(daysSinceReference, 9) + dailyStarReferenceNumber
         return cyclePosition
     }
 
