@@ -28,6 +28,11 @@
 		A0000013 /* th.po in Resources */ = {isa = PBXBuildFile; fileRef = B0000013 /* th.po */; };
 		A0000014 /* KigakuCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000015 /* KigakuCalculatorTests.swift */; };
 		A0000016 /* RisshunProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000016 /* RisshunProvider.swift */; };
+		A0000017 /* BoundaryServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000017 /* BoundaryServices.swift */; };
+		A0000018 /* SekkiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000018 /* SekkiProvider.swift */; };
+		A0000019 /* TableSekkiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000019 /* TableSekkiProvider.swift */; };
+		A000001A /* BoundaryServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B000001A /* BoundaryServicesTests.swift */; };
+		A000001B /* TableSekkiProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B000001B /* TableSekkiProviderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +69,11 @@
 		B0000014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0000015 /* KigakuCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KigakuCalculatorTests.swift; sourceTree = "<group>"; };
 		B0000016 /* RisshunProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RisshunProvider.swift; sourceTree = "<group>"; };
+		B0000017 /* BoundaryServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundaryServices.swift; sourceTree = "<group>"; };
+		B0000018 /* SekkiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SekkiProvider.swift; sourceTree = "<group>"; };
+		B0000019 /* TableSekkiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSekkiProvider.swift; sourceTree = "<group>"; };
+		B000001A /* BoundaryServicesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundaryServicesTests.swift; sourceTree = "<group>"; };
+		B000001B /* TableSekkiProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSekkiProviderTests.swift; sourceTree = "<group>"; };
 		C0000002 /* KyuuseiKigakuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KyuuseiKigakuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -154,6 +164,9 @@
 			children = (
 				B000000C /* KigakuCalculator.swift */,
 				B0000016 /* RisshunProvider.swift */,
+				B0000017 /* BoundaryServices.swift */,
+				B0000018 /* SekkiProvider.swift */,
+				B0000019 /* TableSekkiProvider.swift */,
 				B000000D /* OpenAIService.swift */,
 				B000000E /* LocationService.swift */,
 			);
@@ -191,6 +204,8 @@
 			isa = PBXGroup;
 			children = (
 				B0000015 /* KigakuCalculatorTests.swift */,
+				B000001A /* BoundaryServicesTests.swift */,
+				B000001B /* TableSekkiProviderTests.swift */,
 			);
 			path = KyuuseiKigakuTests;
 			sourceTree = "<group>";
@@ -313,6 +328,9 @@
 				A000000B /* SettingsView.swift in Sources */,
 				A000000C /* KigakuCalculator.swift in Sources */,
 				A0000016 /* RisshunProvider.swift in Sources */,
+				A0000017 /* BoundaryServices.swift in Sources */,
+				A0000018 /* SekkiProvider.swift in Sources */,
+				A0000019 /* TableSekkiProvider.swift in Sources */,
 				A000000D /* OpenAIService.swift in Sources */,
 				A000000E /* LocationService.swift in Sources */,
 				A000000F /* I18n.swift in Sources */,
@@ -324,6 +342,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0000014 /* KigakuCalculatorTests.swift in Sources */,
+				A000001A /* BoundaryServicesTests.swift in Sources */,
+				A000001B /* TableSekkiProviderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
