@@ -495,4 +495,143 @@ final class KigakuCalculatorTests: XCTestCase {
                          "1999-12-\(testCase.day) should be Star \(testCase.expectedStar), got \(dailyStar)")
         }
     }
+
+    func testDailyStar_PatternContinuity() throws {
+        var calendar = Calendar(identifier: .gregorian)
+        guard let jst = TimeZone(identifier: "Asia/Tokyo") else {
+            XCTFail("Could not create JST timezone")
+            return
+        }
+        calendar.timeZone = jst
+
+        var components = DateComponents()
+        components.year = 1995
+        components.month = 2
+        components.day = 4
+        components.hour = 12
+
+        let referenceDate = calendar.date(from: components)!
+        let previousStar = KigakuCalculator.calculateDailyStar(for: referenceDate)
+
+        XCTAssertEqual(previousStar, 9, "Reference should be Star 9")
+
+        for dayOffset in 1...27 {
+            guard let testDate = calendar.date(byAdding: .day, value: dayOffset, to: referenceDate) else {
+                XCTFail("Could not create date for offset \(dayOffset)")
+                continue
+            }
+
+            let currentStar = KigakuCalculator.calculateDailyStar(for: testDate)
+            XCTAssertGreaterThanOrEqual(currentStar, 1, "Star must be >= 1")
+            XCTAssertLessThanOrEqual(currentStar, 9, "Star must be <= 9")
+
+            let expectedPattern = [8, 7, 6, 5, 4, 3, 2, 1, 9, 8, 7, 6, 5, 4, 3, 2, 1, 9, 8, 7, 6, 5, 4, 3, 2, 1, 9]
+            XCTAssertEqual(currentStar, expectedPattern[dayOffset - 1],
+                         "Day +\(dayOffset) should be Star \(expectedPattern[dayOffset - 1])")
+        }
+    }
+
+    func testDailyStar_NegativeDayOffsets() throws {
+        var calendar = Calendar(identifier: .gregorian)
+        guard let jst = TimeZone(identifier: "Asia/Tokyo") else {
+            XCTFail("Could not create JST timezone")
+            return
+        }
+        calendar.timeZone = jst
+
+        var components = DateComponents()
+        components.year = 1995
+        components.month = 2
+        components.day = 4
+        components.hour = 12
+
+        let referenceDate = calendar.date(from: components)!
+
+        let testCases: [(offset: Int, expectedStar: Int)] = [
+            (-1, 1),
+            (-2, 2),
+            (-3, 3),
+            (-8, 8),
+            (-9, 9),
+            (-10, 1),
+            (-18, 9)
+        ]
+
+        for testCase in testCases {
+            guard let testDate = calendar.date(byAdding: .day, value: testCase.offset, to: referenceDate) else {
+                XCTFail("Could not create date for offset \(testCase.offset)")
+                continue
+            }
+
+            let dailyStar = KigakuCalculator.calculateDailyStar(for: testDate)
+            XCTAssertEqual(dailyStar, testCase.expectedStar,
+                         "Day \(testCase.offset) should be Star \(testCase.expectedStar), got \(dailyStar)")
+        }
+    }
+
+    func testDailyStar_VeryDistantDates() throws {
+        var calendar = Calendar(identifier: .gregorian)
+        guard let jst = TimeZone(identifier: "Asia/Tokyo") else {
+            XCTFail("Could not create JST timezone")
+            return
+        }
+        calendar.timeZone = jst
+
+        let testCases: [(year: Int, month: Int, day: Int, expectedStar: Int, description: String)] = [
+            (1900, 2, 5, 1, "Start of 20th century (1900-02-05)"),
+            (2099, 12, 31, 9, "End of 21st century (2099-12-31)"),
+            (1950, 6, 15, 5, "Mid-20th century (1950-06-15)"),
+            (2050, 6, 15, 1, "Mid-21st century (2050-06-15)")
+        ]
+
+        for testCase in testCases {
+            var components = DateComponents()
+            components.year = testCase.year
+            components.month = testCase.month
+            components.day = testCase.day
+            components.hour = 12
+
+            let date = calendar.date(from: components)!
+            let dailyStar = KigakuCalculator.calculateDailyStar(for: date)
+
+            XCTAssertGreaterThanOrEqual(dailyStar, 1,
+                                      "\(testCase.description): Must be >= 1")
+            XCTAssertLessThanOrEqual(dailyStar, 9,
+                                   "\(testCase.description): Must be <= 9")
+            XCTAssertEqual(dailyStar, testCase.expectedStar,
+                         "\(testCase.description) should be Star \(testCase.expectedStar), got \(dailyStar)")
+        }
+    }
+
+    func testDailyStar_LeapYearBoundaries() throws {
+        var calendar = Calendar(identifier: .gregorian)
+        guard let jst = TimeZone(identifier: "Asia/Tokyo") else {
+            XCTFail("Could not create JST timezone")
+            return
+        }
+        calendar.timeZone = jst
+
+        let testCases: [(year: Int, month: Int, day: Int, expectedStar: Int)] = [
+            (2000, 2, 28, 1),
+            (2000, 2, 29, 9),
+            (2000, 3, 1, 8),
+            (2004, 2, 28, 8),
+            (2004, 2, 29, 7),
+            (2004, 3, 1, 6)
+        ]
+
+        for testCase in testCases {
+            var components = DateComponents()
+            components.year = testCase.year
+            components.month = testCase.month
+            components.day = testCase.day
+            components.hour = 12
+
+            let date = calendar.date(from: components)!
+            let dailyStar = KigakuCalculator.calculateDailyStar(for: date)
+
+            XCTAssertEqual(dailyStar, testCase.expectedStar,
+                         "\(testCase.year)-\(testCase.month)-\(testCase.day) should be Star \(testCase.expectedStar), got \(dailyStar)")
+        }
+    }
 }
