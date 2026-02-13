@@ -1,0 +1,92 @@
+{
+  "version": "1.0",
+  "timezone": "Asia/Tokyo",
+  "description": "Sekki (節気) solar term instants for Kyusei Kigaku calculations. All dates and times are in JST.",
+  "data_source": "Astronomical calculations based on solar longitude",
+  "years": {
+    "1990": [
+      { "name": "立春", "month": 2, "day": 4, "hour": 10, "minute": 14 },
+      { "name": "啓蟄", "month": 3, "day": 6, "hour": 4, "minute": 27 },
+      { "name": "清明", "month": 4, "day": 5, "hour": 3, "minute": 14 },
+      { "name": "立夏", "month": 5, "day": 5, "hour": 21, "minute": 4 },
+      { "name": "芒種", "month": 6, "day": 6, "hour": 8, "minute": 54 },
+      { "name": "小暑", "month": 7, "day": 7, "hour": 14, "minute": 36 },
+      { "name": "立秋", "month": 8, "day": 7, "hour": 23, "minute": 34 },
+      { "name": "白露", "month": 9, "day": 8, "hour": 5, "minute": 37 },
+      { "name": "寒露", "month": 10, "day": 8, "hour": 21, "minute": 32 },
+      { "name": "立冬", "month": 11, "day": 7, "hour": 22, "minute": 10 },
+      { "name": "大雪", "month": 12, "day": 7, "hour": 11, "minute": 38 },
+      { "name": "小寒", "month": 1, "day": 6, "hour": 0, "minute": 34 }
+    ],
+    "1991": [
+      { "name": "立春", "month": 2, "day": 4, "hour": 16, "minute": 8 },
+      { "name": "啓蟄", "month": 3, "day": 6, "hour": 10, "minute": 19 },
+      { "name": "清明", "month": 4, "day": 5, "hour": 9, "minute": 6 },
+      { "name": "立夏", "month": 5, "day": 6, "hour": 2, "minute": 55 },
+      { "name": "芒種", "month": 6, "day": 6, "hour": 14, "minute": 43 },
+      { "name": "小暑", "month": 7, "day": 7, "hour": 20, "minute": 24 },
+      { "name": "立秋", "month": 8, "day": 8, "hour": 5, "minute": 19 },
+      { "name": "白露", "month": 9, "day": 8, "hour": 11, "minute": 20 },
+      { "name": "寒露", "month": 10, "day": 9, "hour": 3, "minute": 13 },
+      { "name": "立冬", "month": 11, "day": 8, "hour": 3, "minute": 52 },
+      { "name": "大雪", "month": 12, "day": 7, "hour": 17, "minute": 21 },
+      { "name": "小寒", "month": 1, "day": 6, "hour": 6, "minute": 20 }
+    ],
+    "1995": [
+      { "name": "立春", "month": 2, "day": 4, "hour": 15, "minute": 21 },
+      { "name": "啓蟄", "month": 3, "day": 6, "hour": 9, "minute": 31 },
+      { "name": "清明", "month": 4, "day": 5, "hour": 8, "minute": 16 },
+      { "name": "立夏", "month": 5, "day": 6, "hour": 2, "minute": 4 },
+      { "name": "芒種", "month": 6, "day": 6, "hour": 13, "minute": 50 },
+      { "name": "小暑", "month": 7, "day": 7, "hour": 19, "minute": 29 },
+      { "name": "立秋", "month": 8, "day": 8, "hour": 4, "minute": 21 },
+      { "name": "白露", "month": 9, "day": 8, "hour": 10, "minute": 20 },
+      { "name": "寒露", "month": 10, "day": 9, "hour": 2, "minute": 11 },
+      { "name": "立冬", "month": 11, "day": 8, "hour": 2, "minute": 49 },
+      { "name": "大雪", "month": 12, "day": 7, "hour": 16, "minute": 18 },
+      { "name": "小寒", "month": 1, "day": 6, "hour": 5, "minute": 19 }
+    ],
+    "2000": [
+      { "name": "立春", "month": 2, "day": 4, "hour": 20, "minute": 40 },
+      { "name": "啓蟄", "month": 3, "day": 5, "hour": 14, "minute": 47 },
+      { "name": "清明", "month": 4, "day": 4, "hour": 13, "minute": 30 },
+      { "name": "立夏", "month": 5, "day": 5, "hour": 7, "minute": 16 },
+      { "name": "芒種", "month": 6, "day": 5, "hour": 19, "minute": 0 },
+      { "name": "小暑", "month": 7, "day": 7, "hour": 0, "minute": 37 },
+      { "name": "立秋", "month": 8, "day": 7, "hour": 9, "minute": 28 },
+      { "name": "白露", "month": 9, "day": 7, "hour": 15, "minute": 26 },
+      { "name": "寒露", "month": 10, "day": 8, "hour": 7, "minute": 15 },
+      { "name": "立冬", "month": 11, "day": 7, "hour": 7, "minute": 53 },
+      { "name": "大雪", "month": 12, "day": 6, "hour": 21, "minute": 24 },
+      { "name": "小寒", "month": 1, "day": 6, "hour": 10, "minute": 29 }
+    ],
+    "2020": [
+      { "name": "立春", "month": 2, "day": 4, "hour": 17, "minute": 3 },
+      { "name": "啓蟄", "month": 3, "day": 5, "hour": 10, "minute": 57 },
+      { "name": "清明", "month": 4, "day": 4, "hour": 9, "minute": 38 },
+      { "name": "立夏", "month": 5, "day": 5, "hour": 3, "minute": 21 },
+      { "name": "芒種", "month": 6, "day": 5, "hour": 14, "minute": 57 },
+      { "name": "小暑", "month": 7, "day": 6, "hour": 20, "minute": 33 },
+      { "name": "立秋", "month": 8, "day": 7, "hour": 5, "minute": 21 },
+      { "name": "白露", "month": 9, "day": 7, "hour": 11, "minute": 19 },
+      { "name": "寒露", "month": 10, "day": 8, "hour": 3, "minute": 10 },
+      { "name": "立冬", "month": 11, "day": 7, "hour": 3, "minute": 47 },
+      { "name": "大雪", "month": 12, "day": 6, "hour": 17, "minute": 20 },
+      { "name": "小寒", "month": 1, "day": 6, "hour": 6, "minute": 28 }
+    ],
+    "2026": [
+      { "name": "立春", "month": 2, "day": 4, "hour": 3, "minute": 56 },
+      { "name": "啓蟄", "month": 3, "day": 5, "hour": 22, "minute": 3 },
+      { "name": "清明", "month": 4, "day": 4, "hour": 20, "minute": 46 },
+      { "name": "立夏", "month": 5, "day": 5, "hour": 14, "minute": 31 },
+      { "name": "芒種", "month": 6, "day": 6, "hour": 2, "minute": 9 },
+      { "name": "小暑", "month": 7, "day": 7, "hour": 7, "minute": 46 },
+      { "name": "立秋", "month": 8, "day": 7, "hour": 16, "minute": 39 },
+      { "name": "白露", "month": 9, "day": 7, "hour": 22, "minute": 39 },
+      { "name": "寒露", "month": 10, "day": 8, "hour": 14, "minute": 32 },
+      { "name": "立冬", "month": 11, "day": 7, "hour": 15, "minute": 9 },
+      { "name": "大雪", "month": 12, "day": 7, "hour": 4, "minute": 40 },
+      { "name": "小寒", "month": 1, "day": 5, "hour": 17, "minute": 45 }
+    ]
+  }
+}

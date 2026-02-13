@@ -12,7 +12,38 @@ struct KigakuResult {
 /// Kyusei Kigaku is a traditional Japanese divination system based on the Chinese Nine Star Ki.
 /// The system uses the astrological year boundary (Risshun/立春) rather than the calendar year,
 /// meaning births before Risshun belong to the previous year for calculation purposes.
+///
+/// **Architecture:**
+/// This calculator uses dependency injection for boundary services, allowing for:
+/// - Precise Sekki-based month calculations
+/// - Testability with mock providers
+/// - Future extensibility
 class KigakuCalculator {
+
+    // MARK: - Properties
+
+    private let yearBoundaryService: YearBoundaryService
+    private let monthBoundaryService: MonthBoundaryService
+
+    /// Shared singleton instance using production Sekki data.
+    static let shared: KigakuCalculator = {
+        let sekkiProvider = TableSekkiProvider()
+        let yearService = YearBoundaryService(sekkiProvider: sekkiProvider)
+        let monthService = MonthBoundaryService(sekkiProvider: sekkiProvider)
+        return KigakuCalculator(yearBoundaryService: yearService, monthBoundaryService: monthService)
+    }()
+
+    // MARK: - Initialization
+
+    /// Initializes calculator with custom boundary services (primarily for testing).
+    ///
+    /// - Parameters:
+    ///   - yearBoundaryService: Service for determining astrological year boundaries
+    ///   - monthBoundaryService: Service for determining astrological month boundaries
+    init(yearBoundaryService: YearBoundaryService, monthBoundaryService: MonthBoundaryService) {
+        self.yearBoundaryService = yearBoundaryService
+        self.monthBoundaryService = monthBoundaryService
+    }
 
     // MARK: - Public Interface
 
@@ -23,56 +54,48 @@ class KigakuCalculator {
     ///
     /// - Note: All calculations use Asia/Tokyo timezone (JST) as this is the traditional
     ///         reference timezone for Kyusei Kigaku, regardless of where the person was born.
-    static func calculate(birthDate: Date) -> KigakuResult {
-        var calendar = Calendar(identifier: .gregorian)
-        if let jst = TimeZone(identifier: "Asia/Tokyo") {
-            calendar.timeZone = jst
-        }
-        let components = calendar.dateComponents([.year, .month], from: birthDate)
+    func calculate(birthDate: Date) -> KigakuResult {
+        // Determine the Kigaku year using Risshun boundary
+        let kigakuYear = yearBoundaryService.kigakuYear(for: birthDate)
 
-        guard let year = components.year,
-              let month = components.month else {
-            return KigakuResult(honmeiNum: 1, honmeiName: getKigakuName(1), getsumeiNum: 1, getsumeiName: getKigakuName(1))
-        }
+        // Calculate Honmei based on Kigaku year
+        let honmei = Self.calculateHonmei(year: kigakuYear)
 
-        let kigakuYear = determineKigakuYear(birthDate: birthDate, birthYear: year)
-        let honmei = calculateHonmei(year: kigakuYear)
-        let getsumei = calculateSimplifiedGetsumei(honmei: honmei, month: month)
+        // Determine astrological month using Sekki boundaries
+        let astrologicalMonth = monthBoundaryService.astrologicalMonth(for: birthDate) ?? 1
+
+        // Calculate Getsumei based on Honmei and astrological month
+        let getsumei = Self.calculateGetsumei(honmei: honmei, astrologicalMonth: astrologicalMonth)
 
         return KigakuResult(
             honmeiNum: honmei,
-            honmeiName: getKigakuName(honmei),
+            honmeiName: Self.getKigakuName(honmei),
             getsumeiNum: getsumei,
-            getsumeiName: getKigakuName(getsumei)
+            getsumeiName: Self.getKigakuName(getsumei)
         )
     }
 
-    // MARK: - Risshun Boundary Logic
+    /// Static convenience method for backward compatibility.
+    ///
+    /// Uses the shared singleton instance with production Sekki data.
+    ///
+    /// - Parameter birthDate: The person's birth date and time
+    /// - Returns: KigakuResult containing Honmei and Getsumei numbers with their names
+    static func calculate(birthDate: Date) -> KigakuResult {
+        return shared.calculate(birthDate: birthDate)
+    }
+
+    // MARK: - Backward Compatibility Methods
 
     /// Determines if a given date is before the Risshun (立春 / Start of Spring) boundary.
     ///
-    /// **Why Risshun Matters:**
-    /// In Kyusei Kigaku, the astrological new year begins at Risshun, not January 1st.
-    /// Risshun marks the first of the 24 solar terms (二十四節気) in the traditional
-    /// East Asian lunisolar calendar. Anyone born before Risshun belongs to the previous
-    /// astrological year for Honmei calculation purposes.
+    /// **Deprecated:** Use YearBoundaryService.isBeforeRisshun directly for new code.
     ///
-    /// **Timezone Consistency:**
-    /// All Risshun times are expressed in Asia/Tokyo timezone (JST/UTC+9) because:
-    /// 1. Kyusei Kigaku originated in Japan and uses Japanese astronomical calculations
-    /// 2. Historical Risshun tables are published in JST
-    /// 3. Ensures consistent calculations regardless of user's device timezone
-    ///
-    /// **Implementation:**
-    /// - Risshun datetime is retrieved from RisshunProvider's astronomical table
-    /// - Comparison uses Date's absolute time (timezone-independent)
-    /// - Boundary is precise to the minute (e.g., 15:20 is before Risshun at 15:21)
+    /// This method is retained for backward compatibility and uses the shared singleton's
+    /// year boundary service.
     ///
     /// - Parameter date: The date to check (typically a birth date)
     /// - Returns: `true` if the date is before Risshun, `false` if at or after Risshun
-    ///
-    /// - Note: If Risshun data is unavailable for the year, returns `false` (assumes after Risshun)
-    ///         to use the fallback Feb 4 00:00 JST boundary.
     static func isBeforeRisshun(_ date: Date) -> Bool {
         var calendar = Calendar(identifier: .gregorian)
         guard let jst = TimeZone(identifier: "Asia/Tokyo") else {
@@ -80,34 +103,8 @@ class KigakuCalculator {
         }
         calendar.timeZone = jst
 
-        let components = calendar.dateComponents([.year], from: date)
-        guard let year = components.year else {
-            return false
-        }
-
-        guard let risshunDate = RisshunProvider.risshunDate(for: year) else {
-            return false
-        }
-
-        return date < risshunDate
-    }
-
-    /// Determines the Kigaku year to use for Honmei calculation.
-    ///
-    /// The Kigaku year may differ from the calendar year due to the Risshun boundary:
-    /// - Before Risshun: Use previous calendar year (e.g., 1995-02-03 → Kigaku year 1994)
-    /// - At/After Risshun: Use current calendar year (e.g., 1995-02-05 → Kigaku year 1995)
-    ///
-    /// - Parameters:
-    ///   - birthDate: The birth date to evaluate
-    ///   - birthYear: The calendar year of birth
-    /// - Returns: The Kigaku year to use for Honmei calculation
-    private static func determineKigakuYear(birthDate: Date, birthYear: Int) -> Int {
-        if isBeforeRisshun(birthDate) {
-            return birthYear - 1
-        } else {
-            return birthYear
-        }
+        let year = calendar.component(.year, from: date)
+        return shared.yearBoundaryService.isBeforeRisshun(date, inYear: year)
     }
 
     // MARK: - Honmei Calculation
@@ -160,30 +157,30 @@ class KigakuCalculator {
 
     // MARK: - Getsumei Calculation
 
-    /// Calculates Getsumei (月命 / Month Star) number based on Honmei and birth month.
+    /// Calculates Getsumei (月命 / Month Star) number based on Honmei and astrological month.
     ///
     /// Getsumei represents the secondary star that influences a person's personality
     /// and interpersonal relationships. It is derived from the Honmei star plus a
     /// month-based offset.
     ///
+    /// **Important:** This method uses astrological months (1-12) determined by Sekki
+    /// boundaries, not calendar months. The astrological month is determined by the
+    /// MonthBoundaryService based on the 12 principal Sekki.
+    ///
     /// **Monthly Offset Pattern:**
     /// The offset follows a repeating 3-month cycle: [2, 5, 8, 2, 5, 8, 2, 5, 8, 2, 5, 8]
-    /// - Jan/Apr/Jul/Oct: +2
-    /// - Feb/May/Aug/Nov: +5
-    /// - Mar/Jun/Sep/Dec: +8
+    /// - Astrological Months 1, 4, 7, 10: +2
+    /// - Astrological Months 2, 5, 8, 11: +5
+    /// - Astrological Months 3, 6, 9, 12: +8
     ///
     /// - Parameters:
     ///   - honmei: The Honmei number (1-9)
-    ///   - month: The birth month (1-12)
+    ///   - astrologicalMonth: The astrological month (1-12)
     /// - Returns: Getsumei number (1-9)
-    private static func calculateSimplifiedGetsumei(honmei: Int, month: Int) -> Int {
+    private static func calculateGetsumei(honmei: Int, astrologicalMonth: Int) -> Int {
         let monthOffset = [2, 5, 8, 2, 5, 8, 2, 5, 8, 2, 5, 8]
-        let offset = monthOffset[month - 1]
-        var getsumei = honmei + offset
-        while getsumei > 9 {
-            getsumei -= 9
-        }
-        return getsumei
+        let offset = monthOffset[astrologicalMonth - 1]
+        return normalizeToNineStars(honmei + offset)
     }
 
     // MARK: - Nichimei (Daily Star) Calculation
